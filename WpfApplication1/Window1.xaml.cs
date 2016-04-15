@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace WpfApplication1
+{
+    /// <summary>
+    /// Interaction logic for Window1.xaml
+    /// </summary>
+    public partial class Window1 : Window
+    {
+        public Window1(Bitmap bmp)
+        {
+            InitializeComponent();
+            image.Source = BitmapToImageSource(bmp);
+            this.WindowStartupLocation = WindowStartupLocation.Manual;
+
+            /*
+            System.Drawing.Rectangle workingArea;
+            if (System.Windows.Forms.SystemInformation.MonitorCount > 1)
+                workingArea = System.Windows.Forms.Screen.AllScreens[1].WorkingArea;
+            else
+                workingArea = System.Windows.Forms.Screen.AllScreens[0].WorkingArea;
+
+            this.Left = workingArea.Left;
+            this.Top = workingArea.Top;
+            this.Width = workingArea.Width;
+            this.Height = workingArea.Height;
+            this.WindowState = WindowState.Maximized;
+            this.WindowStyle = WindowStyle.SingleBorderWindow;
+            this.Topmost = true;
+            //this.Show();
+            */
+        }
+
+        private BitmapImage BitmapToImageSource(Bitmap bitmap)
+        {
+
+            using (MemoryStream memory = new MemoryStream())
+            {
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                memory.Position = 0;
+                BitmapImage bitmapimage = new BitmapImage();
+                bitmapimage.BeginInit();
+                bitmapimage.StreamSource = memory;
+                bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapimage.EndInit();
+
+                return bitmapimage;
+            }
+        }
+    }
+
+    
+}

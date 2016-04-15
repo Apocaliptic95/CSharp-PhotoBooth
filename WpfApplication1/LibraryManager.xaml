@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfApplication1.LibraryManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="LibraryManager" Height="300" Width="466.071" WindowStartupLocation="CenterScreen" Opacity="0.8" ResizeMode="NoResize" Background="Black" BorderBrush="Black" BorderThickness="1,1,2,2" WindowStyle="None">
+    <Grid x:Name="manager" Background="#FF3C4BA8" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="image" Height="173" Margin="0,49,0,75" VerticalAlignment="Center" HorizontalAlignment="Center" Source="pack://siteoforigin:,,,/Resources/plainicon.com-46169-128px-d7f.png"/>
+        <TextBlock x:Name="textBlock" Margin="0,229,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Button x:Name="button" Content="Zamknij" HorizontalAlignment="Center" Margin="0,257,0,0" VerticalAlignment="Top" Width="75" Background="#FF3C4BA8" BorderBrush="Black" Click="button_Click"/>
+    </Grid>
+</Window>
